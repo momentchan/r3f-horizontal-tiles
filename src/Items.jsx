@@ -1,15 +1,10 @@
 import { Image, Scroll, ScrollControls, useScroll } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import { proxy, useSnapshot } from "valtio";
+import { useSnapshot } from "valtio";
 import * as THREE from 'three'
 import { useRef, useState } from "react";
 import { easing } from 'maath'
-
-
-const state = proxy({
-    clicked: null,
-    urls: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 5, 7, 8, 2, 4, 9, 6].map((u) => `${u}.jpg`)
-})
+import { state } from "./state";
 
 const material = new THREE.LineBasicMaterial({ color: 'white' })
 const geometry = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, -0.5, 0), new THREE.Vector3(0, 0.5, 0)])
